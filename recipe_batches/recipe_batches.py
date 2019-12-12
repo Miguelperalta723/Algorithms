@@ -4,11 +4,15 @@ import math
 
 def recipe_batches(recipe, ingredients):
     batches = []
+    #loop through recipe keys
     for item in recipe:
+      #check if item is in ingredients and if not return 0 recipe cannot be made
       if item not in ingredients:
           return 0
+      #and if it is there, devide by recipe and is above 0 push it to batches
       if ingredients[item] // recipe[item] > 0:
           batches.append(ingredients[item] // recipe[item])
+      #if there is not enough to make then return 0
       else: return 0
     
     return min(batches)
